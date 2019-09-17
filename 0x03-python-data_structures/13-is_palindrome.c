@@ -9,32 +9,39 @@
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *h1;
-	listint_t *h2;
-	listint_t *h3;
+	int *ndata;
+	int size, i;
+	listint_t *h;
 
-	h1 = h2 = *head;
-	h3 = NULL;
+	h = *head;
+	size = 0;
 
-	while (h1 != h3)
+	while (h != NULL)
 	{
-		while (h2->next != h3)
-			h2 = h2->next;
-
-		if (h1->n != h2->n)
-			return (0);
-
-		h1 = h1->next;
-
-		if (h1 == NULL)
-			return (1);
-
-		if (h1->next == h2)
-			return (1);
-
-		h3 = h2;
-		h2 = h1;
+		size++;
+		h = h->next;
 	}
 
+	ndata = malloc(sizeof(int) * size);
+	h = *head;
+	i = 0;
+
+	while (h != NULL)
+	{
+		ndata[i] = h->n;
+		h = h->next;
+		i++;
+	}
+
+	for (i = 0, size--; i <= size; i++, size--)
+	{
+		if (ndata[i] != ndata[size])
+		{
+			free(ndata);
+			return (0);
+		}
+	}
+
+	free(ndata);
 	return (1);
 }
