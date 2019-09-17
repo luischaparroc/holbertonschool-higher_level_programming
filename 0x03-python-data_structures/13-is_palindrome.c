@@ -9,7 +9,6 @@
  */
 int is_palindrome(listint_t **head)
 {
-	int *ndata;
 	int size, i;
 	listint_t *h;
 
@@ -22,7 +21,8 @@ int is_palindrome(listint_t **head)
 		h = h->next;
 	}
 
-	ndata = malloc(sizeof(int) * size);
+	int ndata[size];
+
 	h = *head;
 	i = 0;
 
@@ -37,11 +37,9 @@ int is_palindrome(listint_t **head)
 	{
 		if (ndata[i] != ndata[size])
 		{
-			free(ndata);
 			return (0);
 		}
 	}
 
-	free(ndata);
 	return (1);
 }
