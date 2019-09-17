@@ -9,6 +9,7 @@
  */
 int is_palindrome(listint_t **head)
 {
+	int ndata[1024];
 	int size, i;
 	listint_t *h;
 
@@ -20,8 +21,6 @@ int is_palindrome(listint_t **head)
 		size++;
 		h = h->next;
 	}
-
-	int ndata[size];
 
 	h = *head;
 	i = 0;
