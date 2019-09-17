@@ -13,12 +13,6 @@ int is_palindrome(listint_t **head)
 	listint_t *h2;
 	listint_t *h3;
 
-	if (*head == NULL)
-		return (1);
-
-	if ((*head)->next == NULL)
-		return (1);
-
 	h1 = h2 = *head;
 	h3 = NULL;
 
@@ -31,6 +25,9 @@ int is_palindrome(listint_t **head)
 			return (0);
 
 		h1 = h1->next;
+
+		if (h1 == NULL)
+			return (1);
 
 		if (h1->next == h2)
 			return (1);
