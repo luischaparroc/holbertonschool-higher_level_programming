@@ -8,7 +8,7 @@ def best_score(a_dictionary):
     score = a_dictionary[list_keys[0]]
 
     for i in list_keys:
-        if a_dictionary.get(i) > score:
+        if a_dictionary.get(i) >= score:
             name = i
             score = a_dictionary.get(i)
 
