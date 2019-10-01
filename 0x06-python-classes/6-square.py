@@ -5,27 +5,8 @@ class Square:
     def __init__(self, size=0, position=(0, 0)):
         """ Method to initialize the square object
         """
-        if not isinstance(size, int):
-            raise TypeError("size must be an integer")
-            return
-        if size < 0:
-            raise ValueError("size must be >= 0")
-            return
-        if not isinstance(position, tuple):
-            raise TypeError("position must be a tuple of 2 positive integers")
-            return
-        if not isinstance(position[0], int):
-            raise TypeError("position must be a tuple of 2 positive integers")
-            return
-        if not isinstance(position[1], int):
-            raise TypeError("position must be a tuple of 2 positive integers")
-            return
-        if position[0] < 0 or position[1] < 0:
-            raise TypeError("position must be a tuple of 2 positive integers")
-            return
-
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     def area(self):
         """ Method that returns the square are of the object
@@ -46,8 +27,7 @@ class Square:
             raise TypeError("size must be an integer")
         elif value < 0:
             raise ValueError("size must be >= 0")
-        else:
-            self.__size = value
+        self.__size = value
 
     def my_print(self):
         """ Method that prints a # square according
@@ -78,15 +58,12 @@ class Square:
         """
         if not isinstance(value, tuple):
             raise TypeError("position must be a tuple of 2 positive integers")
-            return
         if not isinstance(value[0], int):
             raise TypeError("position must be a tuple of 2 positive integers")
-            return
         if not isinstance(value[1], int):
             raise TypeError("position must be a tuple of 2 positive integers")
-            return
+        if len(value) != 2:
+            raise TypeError("position must be a tuple of 2 positive integers")
         if value[0] < 0 or value[1] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
-            return
-
         self.__position = value
