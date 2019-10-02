@@ -17,5 +17,5 @@ class MagicClass:
         return ((self.__radius ** 2) * math.pi)
 
     """ Method that calculates the perimeter of a circumference """
-    def circumference(math):
+    def circumference(self):
         return (2 * math.pi * self.__radius)
