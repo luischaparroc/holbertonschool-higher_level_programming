@@ -3,9 +3,9 @@ import math
 
 
 class MagicClass:
+
     """Class that stores the properties
-    of a circumference
-    """
+    of a circumference"""
     def __init__(self, radius=0):
         self.__radius = 0
         if type(radius) is not int and type(radius) is not float:
@@ -14,8 +14,8 @@ class MagicClass:
 
     """ Method that calculates the area of the circumference """
     def area(self):
-        return (self.__radius ** 2) * math.pi
+        return ((self.__radius ** 2) * math.pi)
 
     """ Method that calculates the perimeter of a circumference """
     def circumference(math):
-        return 2 * math.pi * self.__radius
+        return (2 * math.pi * self.__radius)
