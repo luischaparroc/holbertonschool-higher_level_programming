@@ -6,7 +6,6 @@ class Square:
         rtn = ""
 
         if self.size == 0:
-            rtn += "\n"
             return rtn
 
         for i in range(self.position[1]):
