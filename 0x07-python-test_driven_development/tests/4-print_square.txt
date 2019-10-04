@@ -1,7 +1,7 @@
 The ``4-print_square`` module
 ============================
 
-Using ``4-print_square``
+Using ``print_square``
 ---------------------
 
 Importing function from the module:
