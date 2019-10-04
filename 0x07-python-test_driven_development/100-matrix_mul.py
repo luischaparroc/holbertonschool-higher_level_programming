@@ -1,22 +1,28 @@
 #!/usr/bin/python3
 """
 
-Module composed by a function that prints 2 new lines after ".?:" characters
+Module composed by a function that multiplies 2 matrices
 
 """
 
 
 def matrix_mul(m_a, m_b):
-    """ Function that prints 2 new lines after ".?:" characters
+    """ Function that multiplies 2 matrices
 
     Args:
-        text: input string
+        m_a: matrix a
+        m_b: matrix b
 
     Returns:
-        No return
+        result of the multiplication
 
     Raises:
-        TypeError: If text is not a string
+        TypeError: if m_a or m_b aren't a list
+        TypeError: if m_a or m_b aren't a list of a lists
+        ValueError: if m_a or m_b are empty
+        TypeError: if the lists of m_a or m_b don't have integers or floats
+        TypeError: if the rows of m_a or m_b don't have the same size
+        ValueError: if m_a and m_b can't be multiplied
 
 
     """
