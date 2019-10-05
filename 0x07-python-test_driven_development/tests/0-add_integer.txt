@@ -75,6 +75,13 @@ Subtracting 98 and 1
 
 Case Overflow:
 
+    >>> add_integer(float('inf'), 0)
+    Traceback (most recent call last):
+    	      ...
+    OverflowError: cannot convert float infinity to integer
+
+Case Overflow 2:
+
     >>> add_integer(float('inf'), float('-inf'))
     Traceback (most recent call last):
     	      ...
@@ -82,7 +89,7 @@ Case Overflow:
 
 Case NaN:
 
-    >>> add_integer(float('nan'))
+    >>> add_integer(0, float('nan'))
     Traceback (most recent call last):
     	      ...
     ValueError: cannot convert float NaN to integer
