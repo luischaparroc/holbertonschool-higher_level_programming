@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python3.5
 """
 
 Module composed by a function that multiplies 2 matrices
@@ -20,4 +20,4 @@ def lazy_matrix_mul(m_a, m_b):
 
     """
 
-    return (np.dot(m_a, m_b))
+    return (np.matmul(m_a, m_b))

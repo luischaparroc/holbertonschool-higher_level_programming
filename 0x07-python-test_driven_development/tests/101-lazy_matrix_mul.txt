@@ -55,42 +55,44 @@ Passing a tuple as a matrix
 Passing a string as a matrix
 
     >>> matrix_mul([[3, 3], [4, 4]], "Holberton")
-    NotImplemented
+    Traceback (most recent call last):
+    	      ...
+    TypeError: ufunc 'multiply' did not contain a loop with signature matching types dtype('<U9') dtype('<U9') dtype('<U9')
 
 Passing a list of tuples
 
    >>> matrix_mul([(1, 5, 10)], [(1), (5)])
    Traceback (most recent call last):
    	     ...
-   ValueError: objects are not aligned
+   ValueError: shapes (1,3) and (2,) not aligned: 3 (dim 1) != 2 (dim 0)
 
 Passing a list of string
 
    >>> matrix_mul([[]], ["Holberton"])
    Traceback (most recent call last):
    	     ...
-   ValueError: objects are not aligned
+   ValueError: shapes (1,0) and (1,) not aligned: 0 (dim 1) != 1 (dim 0)
 
 Passing an empty matrix
 
     >>> matrix_mul([], [[1]])
     Traceback (most recent call last):
     	      ...
-    ValueError: objects are not aligned
+    ValueError: shapes (0,) and (1,1) not aligned: 0 (dim 0) != 1 (dim 0)
 
 Passing an empty matrix 2
 
     >>> matrix_mul([[1, 2]], [[]])
     Traceback (most recent call last):
     	      ...
-    ValueError: objects are not aligned
+    ValueError: shapes (1,2) and (1,0) not aligned: 2 (dim 1) != 1 (dim 0)
 
 Passing a matrix with a list of strings
 
     >>> matrix_mul([[1, '1', 1], ['2', 2, '2']], [[3], [3]])
     Traceback (most recent call last):
     	      ...
-    ValueError: objects are not aligned
+    ValueError: shapes (2,3) and (2,1) not aligned: 3 (dim 1) != 2 (dim 0)
 
 Passing a matrix with a list of strings 2
 
@@ -118,4 +120,4 @@ Passing two matrix that can't be multiplied
     >>> matrix_mul([[5, 2, 3], [7, 13, 2], [1, 0, 3]], [[2, 3], [6, 9]])
     Traceback (most recent call last):
     	      ...
-    ValueError: objects are not aligned
+    ValueError: shapes (3,3) and (2,2) not aligned: 3 (dim 1) != 2 (dim 0)
