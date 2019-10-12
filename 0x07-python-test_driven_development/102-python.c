@@ -11,7 +11,6 @@
 void print_python_string(PyObject *p)
 {
 
-	char *string;
 	PyObject *str, *repr;
 
 	(void)repr;
@@ -30,7 +29,6 @@ void print_python_string(PyObject *p)
 
 	repr = PyObject_Repr(p);
 	str = PyUnicode_AsEncodedString(p, "utf-8", "~E~");
-	string = PyBytes_AsString(str);
 	printf("  length: %ld\n", PyUnicode_GET_SIZE(p));
-	printf("  str = %s\n", string);
+	printf("  value = %s\n", PyBytes_AsString(str));
 }
