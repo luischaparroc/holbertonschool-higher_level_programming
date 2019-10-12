@@ -17,7 +17,7 @@ Multiplying two matrices
 Multiplying two matrices 2
 
     >>> matrix_mul([[1, 2]], [[3, 4], [5, 6]])
-    array([[ 13, 16]])
+    array([[13, 16]])
 
 Multiplying two matrices 3
 
@@ -38,14 +38,14 @@ Passing None as a matrix
     >>> matrix_mul(None, None)
     Traceback (most recent call last):
     	      ...
-    TypeError: unsupported operand type(s) for *: 'NoneType' and 'NoneType'
+    TypeError: Object arrays are not currently supported
 
 Passing None as a matrix
 
     >>> matrix_mul([[7, 12]], None)
     Traceback (most recent call last):
     	      ...
-    TypeError: unsupported operand type(s) for *: 'int' and 'NoneType'
+    TypeError: Object arrays are not currently supported
 
 Passing a tuple as a matrix
 
@@ -57,7 +57,7 @@ Passing a string as a matrix
     >>> matrix_mul([[3, 3], [4, 4]], "Holberton")
     Traceback (most recent call last):
     	      ...
-    TypeError: ufunc 'multiply' did not contain a loop with signature matching types dtype('<U9') dtype('<U9') dtype('<U9')
+    TypeError: Scalar operands are not allowed, use '*' instead
 
 Passing a list of tuples
 
@@ -99,7 +99,7 @@ Passing a matrix with a list of strings 2
     >>> matrix_mul([[2, 4, 6], [3, 6, 9]], [[1], ['2'], [3]])
     Traceback (most recent call last):
     	      ...
-    ValueError: data type must provide an itemsize
+    ValueError: invalid data type for einsum
 
 Passing a matrix with an empty list
 
