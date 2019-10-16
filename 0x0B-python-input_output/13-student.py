@@ -34,9 +34,4 @@ class Student:
     def reload_from_json(self, json):
         """ Replaces all attributes of the Student instance """
         for atr in json:
-            if atr == "first_name":
-                self.first_name = json[atr]
-            elif atr == "last_name":
-                self.last_name = json[atr]
-            elif atr == "age":
-                self.age = json[atr]
+            self.__dict__[atr] = json[atr]
