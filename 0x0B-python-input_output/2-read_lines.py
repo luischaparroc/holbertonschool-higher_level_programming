@@ -8,6 +8,7 @@ def read_lines(filename="", nb_lines=0):
 
     Args:
         filename: filename
+        nb_lines: number of lines to print
 
     Raises
         Exception: when the file can be opened
