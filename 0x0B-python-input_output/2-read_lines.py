@@ -25,4 +25,3 @@ def read_lines(filename="", nb_lines=0):
                 n_lines += 1
                 if n_lines == nb_lines:
                     break
-    f.closed
