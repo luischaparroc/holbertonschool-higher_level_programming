@@ -5,15 +5,24 @@ process and replaces it
 import sys
 
 
+def print_error():
+    sys.stdout.write("Usage: read_write_heap.py pid search_string")
+    sys.stdout.write(" replace_string\n")
+    sys.exit(1)
+
 if __name__ == "__main__":
     if len(sys.argv) is not 4:
-        sys.stdout.write("Usage: read_write_heap.py pid search_string")
-        sys.stdout.write(" replace_string\n")
-        sys.exit(1)
+        print_error()
 
     pid = int(sys.argv[1])
+
     s_string = sys.argv[2]
+    if s_string == "":
+        print_error()
+
     w_string = sys.argv[3]
+    if w_string == "":
+        print_error()
 
     mps_fname = "/proc/{:d}/maps".format(pid)
     mem_fname = "/proc/{:d}/mem".format(pid)
