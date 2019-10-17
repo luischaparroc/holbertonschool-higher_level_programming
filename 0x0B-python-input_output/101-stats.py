@@ -23,7 +23,8 @@ class Magic:
 
     def add_status_code(self, status):
         """ add repeated number to the status code """
-        self.dic[status] += 1
+        if status in self.dic:
+            self.dic[status] += 1
 
     def print_info(self, sig=0, frame=0):
         """ print status code """
