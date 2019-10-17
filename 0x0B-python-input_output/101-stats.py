@@ -51,3 +51,4 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         magic.print_info()
         raise
+    magic.print_info()
