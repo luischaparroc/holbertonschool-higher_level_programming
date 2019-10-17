@@ -21,8 +21,6 @@ if __name__ == "__main__":
         print_error()
 
     w_string = sys.argv[3]
-    if w_string == "":
-        print_error()
 
     mps_fname = "/proc/{:d}/maps".format(pid)
     mem_fname = "/proc/{:d}/mem".format(pid)
@@ -87,7 +85,7 @@ if __name__ == "__main__":
             print("[*] Writing '{}' at {:x}".format(w_string, i + ad_start))
 
             mem.seek(i + ad_start)
-            mem.write(bytes(w_string, "ASCII"))
+            mem.write(bytes(w_string + '\0', "ASCII"))
 
             maps.close()
             mem.close()
