@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """ Module to print status code """
 import sys
-import signal
 
 
 class Magic:
@@ -37,15 +36,18 @@ magic = Magic()
 magic.init_dic()
 nlines = 0
 
-for line in sys.stdin:
-    if nlines % 10 == 0 and nlines is not 0:
-        magic.print_info()
+try:
+    for line in sys.stdin:
+        if nlines % 10 == 0 and nlines is not 0:
+            magic.print_info()
 
-    list_line = [x for x in line.split(" ") if x.strip()]
-    magic.add_status_code(list_line[-2])
+        list_line = [x for x in line.split(" ") if x.strip()]
+        magic.add_status_code(list_line[-2])
 
-    magic.size += int(list_line[-1].strip("\n"))
+        magic.size += int(list_line[-1].strip("\n"))
 
-    nlines += 1
-
-    signal.signal(signal.SIGINT, magic.print_info)
+        nlines += 1
+except KeyboardInterrupt:
+    magic.print_info()
+    raise
+magic.print_info()
