@@ -61,7 +61,7 @@ class Rectangle(Base):
     @property
     def y(self):
         """ y getter """
-        return self.y
+        return self.__y
 
     @y.setter
     def y(self, value):
