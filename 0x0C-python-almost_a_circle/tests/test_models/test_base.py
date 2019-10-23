@@ -5,6 +5,7 @@ from models.base import Base
 
 
 class TestBaseMethods(unittest.TestCase):
+    """ Suite to test Base class """
 
     def setUp(self):
         """ Method invoked for each test """
