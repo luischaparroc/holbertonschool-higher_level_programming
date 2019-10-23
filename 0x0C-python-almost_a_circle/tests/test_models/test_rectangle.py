@@ -298,3 +298,88 @@ class TestRectangleMethods(unittest.TestCase):
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(json_dictionary)
             self.assertEqual(str_out.getvalue(), res.replace("'", "\""))
+
+    def test_check_value(self):
+        """ Test args passed """
+        with self.assertRaises(ValueError):
+            r1 = Rectangle(-1, 2)
+
+    def test_check_value_2(self):
+        """ Test args passed """
+        with self.assertRaises(ValueError):
+            r1 = Rectangle(1, -2)
+
+    def test_create(self):
+        """ Test create method """
+        dictionary = {'id': 89}
+        r1 = Rectangle.create(**dictionary)
+        self.assertEqual(r1.id, 89)
+
+    def test_create_2(self):
+        """ Test create method """
+        dictionary = {'id': 89, 'width': 1}
+        r1 = Rectangle.create(**dictionary)
+        self.assertEqual(r1.id, 89)
+        self.assertEqual(r1.width, 1)
+
+    def test_create_3(self):
+        """ Test create method """
+        dictionary = {'id': 89, 'width': 1, 'height': 2}
+        r1 = Rectangle.create(**dictionary)
+        self.assertEqual(r1.id, 89)
+        self.assertEqual(r1.width, 1)
+        self.assertEqual(r1.height, 2)
+
+    def test_create_4(self):
+        """ Test create method """
+        dictionary = {'id': 89, 'width': 1, 'height': 2, 'x': 3}
+        r1 = Rectangle.create(**dictionary)
+        self.assertEqual(r1.id, 89)
+        self.assertEqual(r1.width, 1)
+        self.assertEqual(r1.height, 2)
+        self.assertEqual(r1.x, 3)
+
+    def test_create_5(self):
+        """ Test create method """
+        dictionary = {'id': 89, 'width': 1, 'height': 2, 'x': 3, 'y': 4}
+        r1 = Rectangle.create(**dictionary)
+        self.assertEqual(r1.id, 89)
+        self.assertEqual(r1.width, 1)
+        self.assertEqual(r1.height, 2)
+        self.assertEqual(r1.x, 3)
+        self.assertEqual(r1.y, 4)
+
+    def test_save_to_file(self):
+        """ Test JSON file """
+        Rectangle.save_to_file(None)
+        res = "[]\n"
+        with open("Rectangle.json", "r") as file:
+            with patch('sys.stdout', new=StringIO()) as str_out:
+                print(file.read())
+                self.assertEqual(str_out.getvalue(), res)
+
+    def test_save_to_file_2(self):
+        """ Test save JSON file """
+        Rectangle.save_to_file([])
+        res = "[]\n"
+        with open("Rectangle.json", "r") as file:
+            with patch('sys.stdout', new=StringIO()) as str_out:
+                print(file.read())
+                self.assertEqual(str_out.getvalue(), res)
+
+    def test_load_from_file(self):
+        """ Test load JSON file """
+        load_file = Rectangle.load_from_file()
+        self.assertEqual(load_file, [])
+
+    def test_load_from_file_2(self):
+        """ Test load JSON file """
+        r1 = Rectangle(5, 5)
+        r2 = Rectangle(8, 2, 5, 5)
+
+        linput = [r1, r2]
+        Rectangle.save_to_file(linput)
+        loutput = Rectangle.load_from_file()
+
+        for i in range(len(linput)):
+            self.assertEqual(linput[i].__str__(), loutput[i].__str__())

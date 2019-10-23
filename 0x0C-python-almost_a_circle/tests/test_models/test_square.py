@@ -122,6 +122,11 @@ class TestSquareMethods(unittest.TestCase):
         new = Square(4)
         self.assertEqual(new.area(), 16)
 
+    def test_load_from_file(self):
+        """ Test load JSON file """
+        load_file = Square.load_from_file()
+        self.assertEqual(load_file, load_file)
+
     def test_area_2(self):
         """ Checking the return value of area method """
         new = Square(2)
@@ -395,3 +400,68 @@ class TestSquareMethods(unittest.TestCase):
             res2 = file.read()
 
         self.assertEqual(res, res2)
+
+    def test_value_square(self):
+        """ Test value pased to Square """
+        with self.assertRaises(ValueError):
+            s1 = Square(-1)
+
+    def test_create(self):
+        """ Test create method """
+        dictionary = {'id': 89}
+        s1 = Square.create(**dictionary)
+        self.assertEqual(s1.id, 89)
+
+    def test_create_2(self):
+        """ Test create method """
+        dictionary = {'id': 89, 'size': 1}
+        s1 = Rectangle.create(**dictionary)
+        self.assertEqual(s1.id, 89)
+        self.assertEqual(s1.size, 1)
+
+    def test_create_3(self):
+        """ Test create method """
+        dictionary = {'id': 89, 'size': 1, 'x': 2}
+        s1 = Rectangle.create(**dictionary)
+        self.assertEqual(s1.id, 89)
+        self.assertEqual(s1.size, 1)
+        self.assertEqual(s1.x, 2)
+
+    def test_create_4(self):
+        """ Test create method """
+        dictionary = {'id': 89, 'size': 1, 'x': 2, 'y': 3}
+        s1 = Rectangle.create(**dictionary)
+        self.assertEqual(s1.id, 89)
+        self.assertEqual(s1.size, 1)
+        self.assertEqual(s1.x, 2)
+        self.assertEqual(s1.y, 3)
+
+    def test_save_to_file(self):
+        """ Test JSON file """
+        Square.save_to_file(None)
+        res = "[]\n"
+        with open("Square.json", "r") as file:
+            with patch('sys.stdout', new=StringIO()) as str_out:
+                print(file.read())
+                self.assertEqual(str_out.getvalue(), res)
+
+    def test_save_to_file_2(self):
+        """ Test save JSON file """
+        Square.save_to_file([])
+        res = "[]\n"
+        with open("Square.json", "r") as file:
+            with patch('sys.stdout', new=StringIO()) as str_out:
+                print(file.read())
+                self.assertEqual(str_out.getvalue(), res)
+
+    def test_load_from_file_2(self):
+        """ Test load JSON file """
+        s1 = Square(5)
+        s2 = Square(8, 2, 5)
+
+        linput = [s1, s2]
+        Square.save_to_file(linput)
+        loutput = Square.load_from_file()
+
+        for i in range(len(linput)):
+            self.assertEqual(linput[i].__str__(), loutput[i].__str__())
