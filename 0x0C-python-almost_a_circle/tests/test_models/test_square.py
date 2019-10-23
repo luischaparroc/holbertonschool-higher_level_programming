@@ -447,11 +447,9 @@ class TestSquareMethods(unittest.TestCase):
 
     def test_save_to_file_2(self):
         """ Test save JSON file """
-        s1 = Square(5)
         Square.save_to_file([])
-        res = "[]"
-        loutput = Square.load_from_file()
-        self.assertEqual(res, loutput.__str__())
+        with open("Square.json", "r") as file:
+            self.assertEqual(file.read(), "[]")
 
     def test_load_from_file_2(self):
         """ Test load JSON file """
