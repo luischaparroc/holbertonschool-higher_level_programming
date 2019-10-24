@@ -15,16 +15,6 @@ class TestRectangleMethods(unittest.TestCase):
         """ Method invoked for each test """
         Base._Base__nb_objects = 0
 
-        try:
-            os.remove("Rectangle.json")
-        except:
-            pass
-
-        try:
-            os.remove("Square.json")
-        except:
-            pass
-
     def test_new_rectangle(self):
         """ Test new rectangle """
         new = Rectangle(1, 1)
@@ -367,10 +357,11 @@ class TestRectangleMethods(unittest.TestCase):
             with patch('sys.stdout', new=StringIO()) as str_out:
                 print(file.read())
                 self.assertEqual(str_out.getvalue(), res)
+        try:
+            os.remove("Rectangle.json")
+        except:
+            pass
 
-    def test_save_to_file_2(self):
-        """ Test save JSON file """
-        r1 = Rectangle(5, 5)
         Rectangle.save_to_file([])
         with open("Rectangle.json", "r") as file:
             self.assertEqual(file.read(), "[]")
