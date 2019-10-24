@@ -436,24 +436,6 @@ class TestSquareMethods(unittest.TestCase):
         self.assertEqual(s1.x, 2)
         self.assertEqual(s1.y, 3)
 
-    def test_save_to_file(self):
-        """ Test JSON file """
-        Square.save_to_file(None)
-        res = "[]\n"
-        with open("Square.json", "r") as file:
-            with patch('sys.stdout', new=StringIO()) as str_out:
-                print(file.read())
-                self.assertEqual(str_out.getvalue(), res)
-
-        try:
-            os.remove("Square.json")
-        except:
-            pass
-
-        Square.save_to_file([])
-        with open("Square.json", "r") as file:
-            self.assertEqual(file.read(), "[]")
-
     def test_load_from_file_2(self):
         """ Test load JSON file """
         s1 = Square(5)

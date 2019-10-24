@@ -349,23 +349,6 @@ class TestRectangleMethods(unittest.TestCase):
         self.assertEqual(r1.x, 3)
         self.assertEqual(r1.y, 4)
 
-    def test_save_to_file(self):
-        """ Test JSON file """
-        Rectangle.save_to_file(None)
-        res = "[]\n"
-        with open("Rectangle.json", "r") as file:
-            with patch('sys.stdout', new=StringIO()) as str_out:
-                print(file.read())
-                self.assertEqual(str_out.getvalue(), res)
-        try:
-            os.remove("Rectangle.json")
-        except:
-            pass
-
-        Rectangle.save_to_file([])
-        with open("Rectangle.json", "r") as file:
-            self.assertEqual(file.read(), "[]")
-
     def test_load_from_file(self):
         """ Test load JSON file """
         load_file = Rectangle.load_from_file()
