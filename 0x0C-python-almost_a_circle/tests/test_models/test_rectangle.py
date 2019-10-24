@@ -370,6 +370,7 @@ class TestRectangleMethods(unittest.TestCase):
 
     def test_save_to_file_2(self):
         """ Test save JSON file """
+        r1 = Rectangle(5, 5)
         Rectangle.save_to_file([])
         with open("Rectangle.json", "r") as file:
             self.assertEqual(file.read(), "[]")
