@@ -18,4 +18,4 @@ if __name__ == '__main__':
     states = session.query(State).order_by(State.id).all()
 
     print("{}: {}".format(states[0].id, states[0].name)
-          if len(states) else "Nothing")
+          if len(states) > 0 else "Nothing")
