@@ -4,6 +4,9 @@ Module of **High-level programming** and **Python**, carried out during **Full S
 ## Technologies
 * Shell Scripts are written in Bash 4.3.11(1)
 * Python Scripts are written with Python 3.4.3
+* `MySQL 5.7` (version 5.7.8-rc)
+* `MySQLdb`, version 1.3.10
+* `sqlalchemy`, version 1.2.5
 * Tested on Ubuntu 14.04 LTS
 
 ## Projects
@@ -26,3 +29,4 @@ All of the following folders are projects done during the studies:
 | [`0x0C-python-almost_a_circle`](https://github.com/luischaparroc/holbertonschool-higher_level_programming/tree/master/0x0C-python-almost_a_circle) | It aims to learn about unit testing, serialization, deserialization, JSON, `args` and `kwargs` in **Python** |
 | [`0x0D-SQL_introduction`](https://github.com/luischaparroc/holbertonschool-higher_level_programming/tree/master/0x0D-SQL_introduction) | It aims to learn about databases, relational databases, subqueries, tables, **MySQL** statements and functions |
 | [`0x0E-SQL_more_queries`](https://github.com/luischaparroc/holbertonschool-higher_level_programming/tree/master/0x0E-SQL_more_queries) | It aims to learn about how to create a new user, manage privileges for a user, `PRIMARY KEY`, `FOREIGN KEY`, constraints, subqueries, `JOIN` and `UNION` with **MySQL** |
+| [`0x0F-python-object_relational_mapping`](https://github.com/luischaparroc/holbertonschool-higher_level_programming/tree/master/0x0F-python-object_relational_mapping) | It aims to learn about how to connect to a MySQL database from a Python script, what ORM means and how to map a Python Class to a MySQL table |
