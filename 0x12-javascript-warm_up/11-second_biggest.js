@@ -3,7 +3,7 @@ let secondbiggest = 0;
 let biggest = 0;
 
 for (let i = 2; i < process.argv.length; i++) {
-  if (process.argv[i] > biggest) {
+  if (process.argv[i] >= biggest) {
     secondbiggest = biggest;
     biggest = process.argv[i];
   }
